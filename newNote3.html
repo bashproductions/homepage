@@ -1,0 +1,279 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bpllcstyles.css">
+
+    <title>BBA SOLOS LOGGER</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
+
+        
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #notes { margin-top: 20px; color:white;  }
+        .note { margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .timestamp { font-size: 0.8em; color: #888; }
+        h3 {color:white;}
+.notes   {color:white;}
+
+.band {display:flex;}
+.rhythm {display:flex; flex-direction: column-reverse;margin-bottom:15px;}
+
+
+        #notes {
+            margin-top: 20px;
+            color:white;
+        }
+        .note {
+            margin-bottom: 10px;
+            color:white;
+        }
+    
+        
+        #instrumentGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .instrumentItem {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        #mainContainer {
+            display: flex;
+        }
+        .groupColumn {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+        .groupRow {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .group h3 {
+            margin-right: 10px;
+        }
+
+        .group button {
+            margin: 10px;
+            padding: 20px;
+            font-size: 16px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .rhythm button {
+            margin: 10px;
+            padding: 20px;
+            font-size: 16px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+       .square {
+            background-color: #4CAF50;
+        }
+        .circle {
+            background-color: #2196F3;
+            border-radius: 50%;
+        }
+        .diamond {
+            background-color: #FF9800;
+            transform: rotate(45deg);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .diamond span {
+            transform: rotate(-45deg);
+            text-align: center;
+        }
+    </style>
+</head>
+
+  
+
+
+
+<body>
+
+    <div style="background: url(scarletBG_1400.JPG)" class="page-holder bg-cover">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 0, 0, .5)">
+            <div>
+                <a class="navbar-brand" href="newNote3.html" id="bpllc">BBA SOLOS LOGGER</a>
+               <!--- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+                        <!--<li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bpllcabout.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bpllcensembles.html">Ensembles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bpllcvideos.html">Videos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bpllcpress.html">Press</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="bpllccontact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+        </nav>
+
+    <input type="text" id="noteInput" placeholder="Type your note here..." autofocus>
+    <button onclick="addNote()">Add Note</button><br>
+   
+
+    <div class="band">
+        <div class="rhythm">
+                <button class="square" onclick="addInstrumentNote('Drums Solo')">Drums</button>
+                <button class="square" onclick="addInstrumentNote('Bass Solo')">Bass</button>
+                <button class="square" onclick="addInstrumentNote('Piano Solo')">Piano</button>
+        </div>
+            
+        <div class="horns">
+            <div class="group">
+                <button class="circle" onclick="addInstrumentNote('Trumpet 2 Solo')">Tpt2</button>
+                <button class="circle" onclick="addInstrumentNote('Trumpet 1 Solo')">Tpt1</button>
+                <button class="circle" onclick="addInstrumentNote('Trumpet 3 Solo')">Tpt3</button>
+                <button class="circle" onclick="addInstrumentNote('Trumpet 4 Solo')">Tpt4</button>
+            </div>
+        
+            <div class="group">
+                <button class="square" onclick="addInstrumentNote('Guitar Solo')">Guitar</button>
+                <button class="diamond" onclick="addInstrumentNote('Trombone 3 Solo')">Bone 3</button>
+                <button class="diamond" onclick="addInstrumentNote('Trombone 1 Solo')">Bone 1</button>
+                <button class="diamond" onclick="addInstrumentNote('Trombone 2 Solo')">Bone 2</button>
+                <button class="diamond" onclick="addInstrumentNote('Bass Trombone Solo')">Bass Bone</button>
+            </div>
+        
+            <div class="group">
+                <button class="circle" onclick="addInstrumentNote('Tenor 1 Solo')">Tenor 1</button>
+                <button class="circle" onclick="addInstrumentNote('Alto 2 Solo')">Alto 2</button>
+                <button class="circle" onclick="addInstrumentNote('Alto 1 Solo')">Alto 1</button>
+                <button class="circle" onclick="addInstrumentNote('Tenor 2 Solo')">Tenor 2</button>
+                <button class="circle" onclick="addInstrumentNote('Bari Solo')">Bari</button>
+            </div>
+        </div>
+    </div> 
+
+    <div id="notes"></div>
+    <button onclick="sendToGoogleSheet()">Send Notes to Google Sheet</button>
+    
+    <button onclick="clearAllNotes()">Clear All Notes</button>
+
+    <script>
+        document.getElementById('noteInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                addNote();
+            }
+        });
+
+        function addNote() {
+            const noteInput = document.getElementById('noteInput');
+            const noteText = noteInput.value.trim();
+            if (noteText === '') return;
+
+            const timestamp = new Date().toLocaleString();
+            const note = { text: noteText, timestamp };
+
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes.unshift(note);
+            localStorage.setItem('notes', JSON.stringify(notes));
+
+            noteInput.value = '';
+            displayNotes();
+        }
+
+        function displayNotes() {
+            const notesContainer = document.getElementById('notes');
+            notesContainer.innerHTML = '';
+            const notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes.forEach(note => {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'note';
+                noteDiv.innerHTML = `<div class="timestamp">${note.timestamp}</div><div>${note.text}</div>`;
+                notesContainer.appendChild(noteDiv);
+            });
+        }
+
+        function addInstrumentNote(instrument) {
+            const noteText = `Note about ${instrument}`;
+            const timestamp = new Date().toLocaleString();
+            const note = { text: noteText, timestamp };
+
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes.unshift(note);
+            localStorage.setItem('notes', JSON.stringify(notes));
+
+            displayNotes();
+        }
+
+        function clearAllNotes() {
+            localStorage.removeItem('notes');
+            displayNotes();
+        }
+
+        async function sendToGoogleSheet() {
+            const notes = JSON.parse(localStorage.getItem('notes')) || [];
+            if (notes.length === 0) return;
+
+            const response = await fetch('YOUR_GOOGLE_SHEET_WEB_APP_URL', {
+                method: 'POST',
+                body: JSON.stringify(notes),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert('Notes sent to Google Sheet successfully');
+            } else {
+                alert('Error sending notes to Google Sheet');
+            }
+        }
+
+        window.onload = displayNotes;
+    </script>
+  
+ 
+ 
+
+ 
+
+
+    
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+</body>
