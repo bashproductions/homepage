@@ -53,52 +53,49 @@
             font-family: 'poppins', sans-serif;
             font-size: 18px;
          } 
-         /*
-        body{
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        } */
-        .container{
-            width: 500px;
-            padding: 10px;
-            border: 1px solid #eeeeee;
-            border-radius: 10px;
-            background-color: #003b5b;
-        }
+     
+        .container {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 500px; /* Maximum width for larger screens */
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #003b5b;
+    margin: 0 auto; /* Center the container */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
         h4{
             margin-bottom: 10px;
             font-size: 24px;
             color: white;
         }
-        input{
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        textarea{
-            width: 100%;
-            padding: 10px;
-        }
-/* Center the submit button */
-#submit {
-    display: block;
-    margin: 20px auto 0 auto; /* Top margin and auto horizontal margins to center */
+
+        
+        input, textarea {
+    width: 100%; /* Full width of the container */
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+        
+
+
+
+        #submit {
     border: none;
     background-color: orangered;
     color: white;
-    width: 200px;
+    width: 100%; /* Full width for submit button */
     padding: 10px;
+    margin-top: 10px;
     border-radius: 5px;
-    text-align: center;
 }
 
 #submit:hover {
     background-color: #333333;
 }
 
-        /* Styling for the disclaimer box */
+/* Responsive disclaimer box */
 .disclaimer-box {
     background-color: #f9f9f9;
     padding: 10px;
