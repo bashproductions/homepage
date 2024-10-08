@@ -186,7 +186,7 @@
    
                 
                 <div class="container">
-                    <form method="post" action="https://script.google.com/macros/s/AKfycbwtVyL2qFFw8ZsWoMQUkwpF0CqX90vg4wWwuNAPY8mpcZxFjhkRIOV5_kq8aFi0fW-OtA/exec" name="contact-form">
+                    <form method="post" action="https://script.google.com/macros/s/AKfycbzePGl_YavsYhi_sjvDV4Je5snTg4WMsbc0PKJM7F5q8rau766-03k7FE7wWxhDRO2hmw/exec" id="contact-form">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="tel" name="phone-number" placeholder="Phone Number" required>
                         
@@ -254,6 +254,20 @@
         <script>
             // Automatically set timestamp when form is loaded
             document.getElementById('timestamp').value = new Date().toISOString();
+
+          
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzePGl_YavsYhi_sjvDV4Je5snTg4WMsbc0PKJM7F5q8rau766-03k7FE7wWxhDRO2hmw/exec'
+  const form = document.forms['contact-form']
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Thank you! your form is submitted successfully." ))
+    .then(() => { window.location.reload(); })
+    .catch(error => console.error('Error!', error.message))
+  })
+  
+
         </script>
         
   
