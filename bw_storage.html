@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bw_stylesheet.css">
+
+    <title>STORAGE SVB.SM</title>
+
+    <style>
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('closet.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="background: url(Bungalows West.png)" class="page-holder bg-cover">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 0, 0, .5)">
+            <div class="container">
+            <a class="navbar-brand" href="musicBW.html" style="color:white; font-weight: bold; position: relative; z-index:3;">BACK TO HOME</a>
+            </div>
+        </nav>             
+    </div>
+
+
+    <h1>CLOSET GEAR</h1>
+
+
+    <div class="button" onclick="showPopup('bassPopup')">BASS AMP</div>
+    <div class="button" onclick="showPopup('mixerPopup')">MIXER</div>
+
+    <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+
+    <div class="popup" id="bassPopup">
+        <img src="fender.png" alt="Fender Rumble 40">
+        <div class="caption">Fender Rumble 40 (+ power cable & long XLR cable)</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="mixerPopup">
+        <img src="yamaha.png" alt="Yamaha MG06X">
+        <div class="caption">Yamaha MG06X (+ power adaptor & short XLR cable)</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

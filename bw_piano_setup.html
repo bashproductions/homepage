@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bw_stylesheet.css">
+
+    <title>PIANO SETUP</title>
+    
+    <style>
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('piano.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="background: url(Bungalows West.png)" class="page-holder bg-cover">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 0, 0, .5)">
+            <div class="container">
+            <a class="navbar-brand" href="bw_setup0.html" style="color:white; font-weight: bold; position: relative; z-index:3;">Back To Setup</a>
+            </div>
+        </nav>             
+    </div>
+
+
+    <h1>PIANO SETUP</h1>
+
+
+    <div class="button" onclick="showPopup('pianoTopPopup')">1</div>
+    <div class="button" onclick="showPopup('pianoLiftPopup')">2</div>
+    <div class="button" onclick="showPopup('pianoShelfPopup')">3</div>
+    <div class="button" onclick="showPopup('pianoDeskPopup')">4</div>
+    <div class="button" onclick="showPopup('pianoPremapPopup')">5</div>
+    <div class="button" onclick="showPopup('pianoWirePopup')">6</div>
+    <div class="button" onclick="showPopup('pianoPushPopup')">7</div>
+
+
+    <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+
+    <div class="popup" id="pianoTopPopup">
+        <img src="piano_top.png" alt="pianoTop">
+        <div class="caption">Open Front Hinged Lid</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoLiftPopup">
+        <img src="piano_lift.png" alt="pianoLift">
+        <div class="caption">Lift Lid to Half Prop </div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoShelfPopup">
+        <img src="piano_shelf.png" alt="pianoShelf">
+        <div class="caption">Pull out Music Shelf</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoDeskPopup">
+        <img src="piano_desk.png" alt="pianoDesk">
+        <div class="caption">Lift Up Music Desk</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoPremapPopup">
+        <img src="piano_preamp.png" alt="pianoPreamp">
+        <div class="caption">Fish out piano PreampBox</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoWirePopup">
+        <img src="piano_wire.png" alt="pianoWire">
+        <div class="caption">Make sure Thin Wire is running in front of Music Desk (not touching strings)</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="pianoPushPopup">
+        <img src="piano_push.png" alt="pianoPush">
+        <div class="caption">Push Music Shelf back in</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
