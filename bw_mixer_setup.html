@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bw_stylesheet.css">
+
+    <title>MIXER SETUP</title>
+    
+    <style>
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('mixer.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="background: url(Bungalows West.png)" class="page-holder bg-cover">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 0, 0, .5)">
+            <div class="container">
+            <a class="navbar-brand" href="bw_setup0.html" style="color:white; font-weight: bold; position: relative; z-index:3;">BACK TO SETUP</a>
+            </div>
+        </nav>             
+    </div>
+
+
+    <h1><u>MIXER</u></h1>
+
+
+    <div class="button" onclick="showPopup('mixerPlacePopup')">1 - Place</div>
+    <div class="button" onclick="showPopup('mixerPianoPopup')">2 - Plug XLR 1</div>
+    <div class="button" onclick="showPopup('mixerPowerPopup')">3 - Power</div>
+    <div class="button" onclick="showPopup('mixerWallPopup')">4 - XLR to Wall</div>
+
+
+    <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+
+    <div class="popup" id="mixerPlacePopup">
+        <img src="mixer_place.png" alt="mixerPlace">
+        <div class="caption">Place Mixer on Piano's Music Shelf (right-hand side)</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="mixerPianoPopup">
+        <img src="mixer_piano.png" alt="mixerPiano">
+        <div class="caption">Plug XLR cable (from Preamp Box) into Mixer Channel 1</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="mixerPowerPopup">
+        <img src="mixer_power.png" alt="mixerPower">
+        <div class="caption">Plug power adaptor into wall outlet</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+    <div class="popup" id="mixerWallPopup">
+        <img src="mixer_wall.png" alt="mixerWall">
+        <div class="caption">Plug XLR cable (from Mixer "Stereo Out L") into the WALL JACK 1</div>
+        <button class="close" onclick="hidePopup()">Close</button>
+    </div>
+
+
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
