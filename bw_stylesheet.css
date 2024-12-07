@@ -42,35 +42,41 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background: white;
     padding: 20px;
-    overflow-y: auto; /* Ensure popup content is scrollable */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
 }
 
 .popup img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto 10px;
 }
 
-.popup .caption {
-    font-size: 16px;
-    font-weight: bold;
+.caption {
+    text-align: center;
+    margin: 10px 0;
 }
 
-.popup .close {
-    margin-top: 10px;
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: black;
+.close {
+    display: inline-block;
+    background-color: #f44336;
     color: white;
+    font-size: 1.5em;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.close:hover {
+    background-color: #d32f2f;
 }
 
 .overlay {
